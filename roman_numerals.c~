@@ -1,0 +1,41 @@
+#define ROMAN_SYMBOL_TABLE_SIZE 7
+#define LONG_TO_SHORT_TABLE_SIZE 6
+
+
+char LONG_TO_SHORT_LOOKUP(char *roman_numeral) {
+  char temp = ' ';
+  switch(number){
+    case 
+  }
+  
+}
+
+char ROMAN_SYMBOL_LOOKUP(int number) {
+  char temp = ' ';
+  switch (number) {
+  case 1000:
+    temp = 'M';
+    break;
+  case 500:
+    temp = 'D';
+    break;
+  case 100:
+    temp = 'C';
+    break;
+  case 50:
+    temp = 'L';
+    break;
+  case 10:
+    temp = 'X';
+    break;
+  case 5:
+    temp = 'V';
+    break;
+  case 1:
+    temp = 'I';
+    break;
+  }
+  return temp;
+};
+
+int ROMAN_KEYS[7] = {1000, 500, 100, 50, 10, 5, 1};

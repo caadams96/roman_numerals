@@ -1,0 +1,51 @@
+#include "hash.h"
+#include <string.h>
+#include <malloc.h>
+
+#define HASHSIZE 101
+#define IN 1
+static table *hashtable[HASHSIZE]; /* pointer table */
+
+/* hash: form hash value for string s */
+unsigned hash(char *s) {
+  unsigned hashval;
+  for (hashval = 0; *s != '\0'; ++s) {
+    hashval = *s + 31 * hashval;
+  }
+  return hashval % HASHSIZE;
+}
+
+/* lookup: look for s in hashtable */
+table *lookup(char *s) {
+  table *np; /* pointer */
+  for (np = hashtable[hash(s)]; np != NULL; np = np->next) {
+    if (strcmp(s, np->name) == 0) {
+      return np;
+    }
+  }
+  return NULL;
+}
+
+
+
+char *strdup(char *s) {
+  char *p;
+  p = (char *) malloc(strlen(s) + 1); /* +1 for '\0' */
+  if (p != NULL) {
+    strcpy(p, s);
+  }
+  return p;
+}
+
+/* */
+table *install(char *name, char *defn) {
+
+    table *np;
+    unsigned hashval;
+
+    if ((np = lookup(name)) == NULL) {
+        np = (struct table *) malloc(sizeof(*np));
+        if (np == NULL || (np->name = strdup(name)) == NULL)
+            return NULL;
+    }
+}

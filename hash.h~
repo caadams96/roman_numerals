@@ -1,0 +1,10 @@
+/*K&R STYLE HASH TABLE*/
+typedef struct nlist { /* table entry */
+  struct nlist *next;  /* next entry in chain */
+  char *name;          /* defined name */
+  char *defn;          /* replacement text */
+} table;
+char *strdup(char *s);
+unsigned hash(char *s);
+table *lookup(char *s);
+table *install(char *name, char *defn);
